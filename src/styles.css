@@ -1,0 +1,69 @@
+.box{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap
+}
+.material-icons{
+  font-size: 2.4em;
+  cursor: pointer;
+}
+.card{
+  width: 220px;
+}
+/* .card-image img {
+  max-height: 300px;
+  object-fit: contain;
+} */
+.card .card-image .card-title{
+  color: black;
+  font-weight: 400
+}
+.cart{
+  margin-top:40px;
+}
+.collection .collection-item{
+  display: flex;
+}
+.collection-item.avatar .title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ee6e73;
+  display: block;
+  margin-bottom: 20px;
+  
+}
+.collection .collection-item img{
+  width: 150px;
+  margin-right: 25px;
+}
+.item-desc{
+  align-self:center;
+}
+.numberCircle {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 4px;
+  position: absolute;
+  top: 3px;
+  right: 200px;
+  background: #fff;
+  border: 1px solid rgb(233, 229, 229);
+  box-shadow: -2px 3px 66px -4px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -2px 3px 66px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px 3px 66px -4px rgba(0,0,0,0.75);
+  color: #666;
+  text-align: center;
+
+  font: 12px Arial, sans-serif;
+}
+.card .card-title {
+  font-size: 14px;
+}
+.add-remove {
+  margin-top: 75px;
+}
+.color-select {
+  display: block;
+  width: 200px;
+}
