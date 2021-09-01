@@ -68,7 +68,7 @@ const Home: React.FC = () => {
               }) }
             </select>
           </div>}
-                <div className="box">
+                <div data-test="product-list" className="box">
                   { !loading && products.map((item: IProduct)=>{
                     return (
                       <Product {...item}/>
