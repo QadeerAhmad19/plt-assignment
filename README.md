@@ -17,6 +17,6 @@ Following Technologies have been used.
 - materializecss for UI.
 
 
-**Service Layer
+**Service Layer**
 
 - Created *productService.ts* for Api Calling.
