@@ -10,7 +10,7 @@ npm test
 
 Following Technologies have been used.
 
-- Typescript
+- Reactjs with Typescript
 - Functional Components with Hooks
 - Redux
 - Jest for Unit Testing.
