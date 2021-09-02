@@ -27,48 +27,56 @@ export const Cart: React.FC = () => {
         <div className="container">
                 <div className="cart">
                     <h5>You have ordered:</h5>
-                    <ul className="collection">
+                    <div className="collection">
                         {
                             items.length ?
                             (  
                                 items.map(item=>{
                                     return(
-                                        <li className="collection-item avatar" key={item.id}>
-                                                    <div className="item-img"> 
-                                                        <img src={item.img} alt={item.img} className=""/>
-                                                    </div>
-                                                    
-                                                    <div className="item-desc">
+                                        <div className="row collection-item avatar">
+                                            <div className="col m3 l3 item-img">
+                                                <img src={item.img} alt={item.img} className=""/>
+                                            </div>
+                                            <div className="col m9 l9 s12">
+                                                <div className="row">
+                                                    <div className="col m9 l9 s12">
                                                         <span className="title">{item.name}</span>
                                                         <p>{item.colour}</p>
-                                                        <p><b>Price: &#163; {item.price}</b></p> 
+                                                        <p><b>Price: &#163; {item.price}</b></p>
                                                     </div>
-                                                    <div className="add-remove row center-align">
-                                                            <div className="col">
+                                                    <div className="col m3 l3 add-remove center-align">
+                                                        <div className="row">
+                                                            <div className="col m4 l4">
                                                                 <Link to="/cart"><i className="material-icons" onClick={()=>handleAddQuantity(item.id)}>add</i></Link>
                                                             </div>
-                                                            <div className="col">
+                                                            <div className="col m4 l4">
                                                                 <div><b>{item.quantity}</b></div> 
                                                                 <div>
-                                                                    <button className="waves-effect waves-light btn pink remove" onClick={()=>handleRemove(item.id)}>Remove</button>
+                                                                    <a href="javascript:;" onClick={()=>handleRemove(item.id)}>Remove</a>
                                                                 </div>
                                                             </div>
-                                                            <div className="col">
-                                                                <Link to="/cart"><i className="material-icons" onClick={()=>handleSubtractQuantity(item.id)}>remove</i></Link>
+                                                            <div className="col m4 l4">
+                                                                    <Link to="/cart"><i className="material-icons" onClick={()=>handleSubtractQuantity(item.id)}>remove</i></Link>
                                                             </div>
                                                         </div>
-                                                </li>
-                                         
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     )
                                 })
                             ):
                 
                              (
-                                <p>Nothing.</p>
+                                <p className="collection-item">Nothing.</p>
                              )
                         }
-                        { <li className="collection-item"><b>Total: &#163; {totalItems}</b></li> }
-                    </ul>
+                        { <div className="collection-item row">
+                            <div className="col m12 l12 s12 right-align">
+                                <b>Total: &#163; {totalItems}</b>
+                            </div>
+                        </div> }
+                    </div>
                 </div>          
             </div>
     )

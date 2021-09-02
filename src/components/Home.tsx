@@ -21,7 +21,8 @@ const Home: React.FC = () => {
         setColor(value);
         setTimeout(() => {
           dispatch(filterProducts(value));
-        },300)
+        },300);
+        setLoading(false);
       };  
       React.useEffect(() => {
         setLoading(true);
@@ -61,17 +62,17 @@ const Home: React.FC = () => {
               <option value="show-all">
                 Show All
               </option>
-              { colors && colors.map((m: IProduct) => {
+              { colors && colors.map((m: IProduct, index: number) => {
                 return (
-                  <option value={m.colour}>{m.colour}</option>    
+                  <option value={m.colour} key={index}>{m.colour}</option>    
                 )
               }) }
             </select>
           </div>}
                 <div className="box">
-                  { !loading && products.map((item: IProduct)=>{
+                  { !loading && products.map((item: IProduct, index: number)=>{
                     return (
-                      <Product {...item}/>
+                      <Product {...item} key={index}/>
                     )
                   })}
                   { loading && <Loader modal="Products" />}
