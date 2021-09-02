@@ -33,7 +33,7 @@ export const Cart: React.FC = () => {
                             (  
                                 items.map(item=>{
                                     return(
-                                        <div className="row collection-item avatar">
+                                        <div className="row collection-item avatar valign-wrapper">
                                             <div className="col m3 l3 item-img">
                                                 <img src={item.img} alt={item.img} className=""/>
                                             </div>
