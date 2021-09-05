@@ -5,7 +5,7 @@ import { addToCart } from "../store/actionCreators";
 
 const Product: React.FC<IProduct> = (item: IProduct) => {
     const dispatch: Dispatch = useDispatch();
-    const handleClick = () => {
+    const handleClick = (): void => {
         dispatch(addToCart(item.id));
     };
     return (
