@@ -8,21 +8,18 @@ import ProductDataService from "../services/productService";
 
 const Home: React.FC = () => {
     const [loading, setLoading] = React.useState(false);
-    const [selectedColor, setColor] = React.useState<string>("default");
+    const [selectedColor, setColor] = React.useState("default");
     const [colors, setColors] = React.useState<any>()
-    const dispatch: Dispatch<any> = useDispatch();
+    const dispatch: Dispatch = useDispatch();
     const products: IProduct[] = useSelector(
         (state: CartState) => state.items,
         shallowEqual
       );
-      const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+      const selectChange = (event: React.ChangeEvent<HTMLSelectElement>): void =>  {
         const value = event.target.value;
         setLoading(true);
         setColor(value);
-        setTimeout(() => {
-          dispatch(filterProducts(value));
-        },300);
-        setLoading(false);
+        dispatch(filterProducts(value));
       };  
       React.useEffect(() => {
         setLoading(true);
@@ -32,10 +29,7 @@ const Home: React.FC = () => {
             dispatch(setProducts(response.data))
             // Note: Filterout valid colors from product service. 
             // This should have seperate service e.g getProductAttributes
-            const uniqueColors = Array.from(new Set(response.data.map((a: IProduct) => a.colour)))
-            .map(colour => {
-              return response.data.find((a: IProduct) => a.colour === colour)
-            });
+            const uniqueColors = Array.from(new Set(response.data.map((a: IProduct) => a.colour)));
             setColors(uniqueColors);
           })
           .catch(err => {
@@ -62,9 +56,9 @@ const Home: React.FC = () => {
               <option value="show-all">
                 Show All
               </option>
-              { colors && colors.map((m: IProduct, index: number) => {
+              { colors && colors.map((m: string, index: number) => {
                 return (
-                  <option value={m.colour} key={index}>{m.colour}</option>    
+                  <option value={m} key={index}>{m}</option>    
                 )
               }) }
             </select>

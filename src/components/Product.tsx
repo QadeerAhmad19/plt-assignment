@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../store/actionCreators";
 
 const Product: React.FC<IProduct> = (item: IProduct) => {
-    const dispatch: Dispatch<any> = useDispatch();
-    const handleClick = (id: Number) => {
-        dispatch(addToCart(id));
+    const dispatch: Dispatch = useDispatch();
+    const handleClick = () => {
+        dispatch(addToCart(item.id));
     };
     return (
         <div className="card" key={item.id}>
@@ -17,7 +17,7 @@ const Product: React.FC<IProduct> = (item: IProduct) => {
                 <span className="card-title">{item.name}</span>
                 <p><b>{item.colour}</b></p>
                 <p><b>Price: &#163;{item.price}</b></p>
-                <button className="btn halfway-fab waves-effect waves-light pink accent-1" onClick={()=>{handleClick(item.id)}}>Add to Cart</button>
+                <button className="btn halfway-fab waves-effect waves-light pink accent-1" onClick={handleClick}>Add to Cart</button>
             </div>
         </div>
     )

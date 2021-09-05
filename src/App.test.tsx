@@ -17,8 +17,8 @@ describe('Application tests', () => {
         store = mockStore(initialState);
         await ProductDataService.getAll().then(e => {
             products = e.data;
-            products.map((m: IProduct) => {
-                render(<Provider store={store}><Product {...m} /></Provider>);
+            products.map((m: IProduct, index) => {
+                render(<Provider store={store}><Product {...m} key={index} /></Provider>);
             })
         });
         const inputs = document.body.querySelectorAll('.product-item');
@@ -28,8 +28,8 @@ describe('Application tests', () => {
         store = mockStore(initialState);
         await ProductDataService.getAll().then(e => {
             products = e.data;
-            products.map((m: IProduct) => {
-                const { container } = render(<Provider store={store}><Product {...m} /></Provider>);
+            products.map((m: IProduct, index) => {
+                const { container } = render(<Provider store={store}><Product {...m} key={index} /></Provider>);
                 const price = container.querySelector('.price');
                 expect(price).not.toBe(null);
                 const colour = container.querySelector('.colour');

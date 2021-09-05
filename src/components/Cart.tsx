@@ -5,22 +5,22 @@ import { removeItem, addQuantity, subtractQuantity } from "../store/actionCreato
 import { Link } from 'react-router-dom'
 
 export const Cart: React.FC = () => {
-    const dispatch: Dispatch<any> = useDispatch();
+    const dispatch: Dispatch = useDispatch();
     const items: IProduct[] = useSelector(
         (state: CartState) => state.addedItems
       );
     const totalItems: Number = useSelector(
         (state: CartState) => state.total
       );
-    const handleRemove = (id: Number)=>{
+    const handleRemove = (id: Number): void =>{
         dispatch(removeItem(id))
     };
     //to add the quantity
-    const handleAddQuantity = (id: Number)=>{
+    const handleAddQuantity = (id: Number): void =>{
         dispatch(addQuantity(id))
     };
     //to substruct from the quantity
-    const handleSubtractQuantity = (id: Number)=>{
+    const handleSubtractQuantity = (id: Number): void =>{
         dispatch(subtractQuantity(id))
     };
     return(
@@ -31,9 +31,9 @@ export const Cart: React.FC = () => {
                         {
                             items.length ?
                             (  
-                                items.map(item=>{
+                                items.map((item, index)=>{
                                     return(
-                                        <div className="row collection-item avatar valign-wrapper">
+                                        <div className="row collection-item avatar valign-wrapper" key={index}>
                                             <div className="col m3 l3 item-img">
                                                 <img src={item.img} alt={item.img} className=""/>
                                             </div>
@@ -52,7 +52,7 @@ export const Cart: React.FC = () => {
                                                             <div className="col m4 l4">
                                                                 <div><b>{item.quantity}</b></div> 
                                                                 <div>
-                                                                    <a href="javascript:;" onClick={()=>handleRemove(item.id)}>Remove</a>
+                                                                    <a href="#" onClick={()=>handleRemove(item.id)}>Remove</a>
                                                                 </div>
                                                             </div>
                                                             <div className="col m4 l4">

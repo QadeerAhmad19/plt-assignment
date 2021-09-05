@@ -27,10 +27,10 @@ const reducer = (
         let existed_item = state.addedItems.find(item=> action.id === item.id)
         if(existed_item)
         {
-            addedItem.quantity += 1 
+          addedItem.quantity += 1 
             return{
                 ...state,
-                total: state.total + addedItem.price 
+                total: parseFloat(state.total + addedItem.price)
                   }
         }
         else{
@@ -41,7 +41,7 @@ const reducer = (
             return{
                 ...state,
                 addedItems: [...state.addedItems, addedItem],
-                total : newTotal
+                total : parseFloat(newTotal)
             }
         }
       }
@@ -49,11 +49,12 @@ const reducer = (
     if(action.type === REMOVE_ITEM){
         let itemToRemove= state.addedItems.find(item=> action.id === item.id)
         let new_items = state.addedItems.filter(item=> action.id !== item.id)
-        
+        let newTotal: number = 0.0;
+        if(itemToRemove) {
         //calculating the total
-        let newTotal = state.total - (itemToRemove.price * itemToRemove.quantity )
-        console.log(itemToRemove)
-        return{
+          newTotal = parseFloat((state.total - (itemToRemove.price * itemToRemove.quantity)).toFixed(2))
+        }
+        return {
             ...state,
             addedItems: new_items,
             total: newTotal
@@ -76,7 +77,7 @@ const reducer = (
         //if the qt == 0 then it should be removed
         if(addedItem && addedItem.quantity === 1){
             let new_items = state.addedItems.filter(item=>item.id !== action.id)
-            let newTotal = state.total - addedItem.price
+            let newTotal = parseFloat((state.total - addedItem.price).toFixed(2));
             return{
                 ...state,
                 addedItems: new_items,

@@ -2,7 +2,7 @@ interface IProduct {
   id: number;
   name: string;
   img: string;
-  price: any,
+  price: number,
   colour: string,
   quantity?: any | null
 }
@@ -10,8 +10,8 @@ interface IProduct {
 type CartState = {
   items: IProduct[],
   cloneItems: IProduct[],
-  addedItems: any[],
-  total: any
+  addedItems: IProduct[],
+  total: Float
 };
 
 type Action = {
