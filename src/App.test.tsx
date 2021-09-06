@@ -12,7 +12,7 @@ describe('Application tests', () => {
         reducer
     };
     const mockStore = configureStore();
-    var store: any;
+    let store: any;
     it('Products correctly listed', async() => {
         store = mockStore(initialState);
         await ProductDataService.getAll().then(e => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
-export const Navbar: React.FC = () => {
+const Navbar: React.FC = () => {
     const totalItems: number = useSelector(
         (state: CartState) => state.addedItems && state.addedItems.length
       );
@@ -18,3 +18,5 @@ export const Navbar: React.FC = () => {
             </nav>
     );
 };
+
+export default Navbar;

@@ -4,7 +4,7 @@ interface IProduct {
   img: string;
   price: number,
   colour: string,
-  quantity?: any | null
+  quantity?: number
 }
 
 type CartState = {

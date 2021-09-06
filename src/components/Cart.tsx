@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeItem, addQuantity, subtractQuantity } from "../store/actionCreators";
 import { Link } from 'react-router-dom'
 
-export const Cart: React.FC = () => {
+const Cart: React.FC = () => {
     const dispatch: Dispatch = useDispatch();
     const items: IProduct[] = useSelector(
         (state: CartState) => state.addedItems
@@ -81,3 +81,5 @@ export const Cart: React.FC = () => {
             </div>
     )
 }
+
+export default Cart;
