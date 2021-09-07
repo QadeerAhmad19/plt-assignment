@@ -63,7 +63,7 @@ const Home: React.FC = () => {
               }) }
             </select>
           </div>}
-                <div className="box">
+                <div className="row">
                   { !loading && products.map((item: IProduct, index: number)=>{
                     return (
                       <Product {...item} key={index}/>

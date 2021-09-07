@@ -9,7 +9,7 @@ const Product: React.FC<IProduct> = (item: IProduct) => {
         dispatch(addToCart(item.id));
     };
     return (
-        <div className="card product-item" key={item.id}>
+        <div className="card product-item col s6 m3 l3 large" key={item.id}>
             <div className="card-image">
                 <img src={item.img} alt={item.name}/>
             </div>

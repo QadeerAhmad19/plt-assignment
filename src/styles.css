@@ -31,24 +31,6 @@
   width: 150px;
   margin-right: 25px;
 }
-.numberCircle {
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  padding: 4px;
-  position: absolute;
-  top: 3px;
-  right: 200px;
-  background: #fff;
-  border: 1px solid rgb(233, 229, 229);
-  box-shadow: -2px 3px 66px -4px rgba(0,0,0,0.75);
-  -webkit-box-shadow: -2px 3px 66px -4px rgba(0,0,0,0.75);
-  -moz-box-shadow: -2px 3px 66px -4px rgba(0,0,0,0.75);
-  color: #666;
-  text-align: center;
-
-  font: 12px Arial, sans-serif;
-}
 .card .card-title {
   font-size: 14px;
 }
@@ -59,4 +41,24 @@
 .cart-action {
   margin-top: 10%;
   margin-left: 0px;
+}
+.numberCircle {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 5px;
+  box-shadow: -2px 3px 66px -4px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -2px 3px 66px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px 3px 66px -4px rgba(0,0,0,0.75);
+  background: #fff;
+  border: 1px solid #666;
+  color: #666;
+  text-align: center;
+  display: inline-table;
+  position: relative;
+  top: -15px;
+  font: 12px Arial, sans-serif;
+}
+.card .card-content .card-title {
+  line-height: 20px;
 }

@@ -66,9 +66,13 @@ const Cart: React.FC = () => {
                                     )
                                 })
                             ):
-                
                              (
-                                <p className="collection-item">Nothing.</p>
+                                <p className="collection-item">
+                                    Nothing.
+                                    <Link to="/">
+                                        Go Home
+                                    </Link>
+                                </p>
                              )
                         }
                         { <div className="collection-item row">

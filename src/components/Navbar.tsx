@@ -9,10 +9,14 @@ const Navbar: React.FC = () => {
     return(
             <nav className="nav-wrapper pink accent-1">
                 <div className="container">
-                    <Link to="/" className="brand-logo">PrettyLittleThing</Link>
+                    <Link to="/" className="brand-logo hide-on-small-only">PrettyLittleThing</Link>
                     <ul className="right">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/cart">My cart<span className="numberCircle">{totalItems}</span></Link></li>
+                        <li><Link to="/cart">My cart
+                        <div className="numberCircle">
+                            {totalItems}
+                        </div>
+                        </Link></li>
                     </ul>
                 </div>
             </nav>
